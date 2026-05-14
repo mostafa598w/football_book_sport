@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GoalZone Ultra — Football Field Booking</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link rel="stylesheet" href="/static/css/style.css"/>
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+</head>
+<body>
+
+<!-- ── LOADER ──────────────────────────────────────────────────────────── -->
+<div id="loader">
+  <svg class="loader-ball" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="40" cy="40" r="36" fill="none" stroke="#00ff87" stroke-width="3" stroke-dasharray="56 168" stroke-linecap="round"/>
+    <circle cx="40" cy="40" r="28" fill="none" stroke="#00d4ff" stroke-width="2" stroke-dasharray="44 132" stroke-linecap="round" stroke-dashoffset="44"/>
+    <circle cx="40" cy="40" r="20" fill="none" stroke="#00ff87" stroke-width="1.5" opacity="0.5"/>
+    <path d="M40 4 L44 14 L40 12 L36 14Z" fill="#00ff87"/>
+    <path d="M40 76 L44 66 L40 68 L36 66Z" fill="#00ff87"/>
+    <path d="M4 40 L14 44 L12 40 L14 36Z" fill="#00d4ff"/>
+    <path d="M76 40 L66 44 L68 40 L66 36Z" fill="#00d4ff"/>
+  </svg>
+  <div class="loader-text">GOALZONE</div>
+  <div class="loader-bar"><div class="loader-fill"></div></div>
+</div>
+
+<!-- ── PARTICLE CANVAS ──────────────────────────────────────────────────── -->
+<canvas id="particle-canvas"></canvas>
+
+<!-- ── TOAST ────────────────────────────────────────────────────────────── -->
+<div id="toast" class="toast"></div>
+
+<!-- ── NAV ──────────────────────────────────────────────────────────────── -->
+<nav class="nav" id="nav">
+  <a class="nav-logo" onclick="navigate('home')">
+    <span>⚽</span> GoalZone
+  </a>
+  <div class="nav-links" id="nav-links">
+    <a class="nav-link" onclick="navigate('fields')">Fields</a>
+    <a class="nav-link" onclick="navigate('bookings')">My Bookings</a>
+    <a class="nav-link" onclick="navigate('recommend')">⚡ AI Pick</a>
+  </div>
+  <div class="nav-actions" id="nav-actions">
+    <button class="btn btn-glass btn-sm" onclick="navigate('login')">Login</button>
+    <button class="btn btn-neon btn-sm" onclick="navigate('register')">Sign Up</button>
+  </div>
+  <div class="nav-user hidden" id="nav-user">
+    <span id="nav-username"></span>
+    <button class="btn btn-glass btn-sm" onclick="logout()">Logout</button>
+  </div>
+  <button class="hamburger" onclick="toggleMobile()" id="hamburger">☰</button>
+</nav>
+
+<!-- ── APP ──────────────────────────────────────────────────────────────── -->
+<main id="app"></main>
+
+<!-- ── MODAL ────────────────────────────────────────────────────────────── -->
+<div class="modal-overlay" id="modal-overlay" onclick="closeModal()"></div>
+<div class="modal" id="modal">
+  <button class="modal-close" onclick="closeModal()">✕</button>
+  <div id="modal-content"></div>
+</div>
+
+<script src="/static/js/app.js"></script>
+</body>
+</html>
